@@ -1,22 +1,17 @@
 <h1>Dogs</h1>
-<ul>
+
 <% @dogs.each do |dog| %>
-  <li>
-    <%= link_to dog.name, dog_path(dog) %> - <%= dog.description %>
-  </li>
-<div>
-</div>
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><strong>Name: </strong><%= dog.name %></h5>
-        <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
-        <p class="card-text"><strong>Price: </strong><%= dog.price %></p>
-        <button class="btn btn-primary">Rent This Dog</button>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><strong>Name: </strong><%= link_to dog.name, dog_path(dog) %></h5>
+          <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
+          <p class="card-text"><strong>Price: </strong><%= dog.price %></p>
+          <button class="btn btn-primary">Rent This Dog</button>
+        </div>
       </div>
     </div>
   </div>
-  </div>
 <% end %>
-</ul>
