@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   # bookings controller
   get "bookings", to: "bookings#index"
-  get "dogs/dog_id/bookings/new", to: "bookings#new"
-  post "dogs/dog_id/bookings/new", to: "bookings#create"
+  get "dogs/:dog_id/bookings/new", to: "bookings#new"
+  post "dogs/:dog_id/bookings/new", to: "bookings#create"
   get "bookings/:id/edit", to: "bookings#edit"
   patch "bookings/:id", to: "bookings#update"
 end
