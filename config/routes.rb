@@ -8,4 +8,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # dogs controller
+  get "dogs", to: "dogs#index"
+  get "dogs/new", to: "dogs#new"
+  post "dogs", to: "dogs#create"
+
+  # bookings controller
+  get "bookings", to: "bookings#index"
+  get "dogs/:dog_id/bookings/new", to: "bookings#new"
+  post "dogs/:dog_id/bookings/new", to: "bookings#create"
+  get "bookings/:id/edit", to: "bookings#edit"
+  patch "bookings/:id", to: "bookings#update"
 end
