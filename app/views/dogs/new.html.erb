@@ -1,0 +1,30 @@
+<%= form_with(model: @dog, local: true, html: { class: 'container mt-4' }) do |form| %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: 'form-label' %>
+    <%= form.text_area :description, class: 'form-control', rows: 3 %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :price, class: 'form-label' %>
+    <%= form.number_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :city, class: 'form-label' %>
+    <%= form.text_field :city, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :user_id, "Owner", class: 'form-label' %>
+    <%= form.collection_select :user_id, User.all, :id, :first_name, { prompt: "Select Owner" }, { class: 'form-select' } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Create Dog", class: 'btn btn-primary' %>
+  </div>
+<% end %>
