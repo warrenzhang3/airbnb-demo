@@ -1,7 +1,7 @@
 # app/controllers/dogs_controller.rb
 class DogsController < ApplicationController
   def index
-
+    @dogs = Dog.all
   end
 
   def new

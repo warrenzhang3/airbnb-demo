@@ -1,0 +1,17 @@
+<h1>Dogs</h1>
+
+<% @dogs.each do |dog| %>
+<div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><strong>Name: </strong><%= dog.name %></h5>
+        <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
+        <p class="card-text"><strong>Price: </strong><%= dog.price %></p>
+      </div>
+    </div>
+  </div>
+  </div>
+<% end %>
