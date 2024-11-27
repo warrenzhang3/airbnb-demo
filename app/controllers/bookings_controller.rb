@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:edit, :update]
   def index
     @bookings = current_user.bookings
   end
@@ -25,10 +26,18 @@ class BookingsController < ApplicationController
   end
 
   def update
-
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Booking updated successfully.'
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_booking
+    @booking = current_user.bookings.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :total_price)

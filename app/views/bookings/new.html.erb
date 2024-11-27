@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="mb-3">
+    <%= form.label :dog_name, "Dog Name", class: 'form-label' %>
+    <%= form.text_field :dog_name, class: 'form-control', value: params[:dog_name], readonly: true %>
+  </div>
+
+  <div class="mb-3">
     <%= form.label :start_date, class: 'form-label' %>
     <%= form.date_field :start_date, class: 'form-control', id: 'start_date' %>
   </div>
@@ -19,6 +24,11 @@
   <div class="mb-3">
     <%= form.label :end_date, class: 'form-label' %>
     <%= form.date_field :end_date, class: 'form-control', id: 'end_date' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :price_per_day, "Price per Day (CAD)", class: 'form-label' %>
+    <%= form.text_field :price_per_day, class: 'form-control', value: params[:price], readonly: true %>
   </div>
 
   <div class="mb-3">
@@ -42,7 +52,7 @@
     const startDateInput = document.getElementById('start_date');
     const endDateInput = document.getElementById('end_date');
     const totalPriceInput = document.getElementById('total_price');
-    const dogPrice = <%= @dog.price %>;
+    const pricePerDay = parseFloat("<%= params[:price] %>");  // Fetch the price per day from the params
 
     function calculateTotalPrice() {
       const startDate = new Date(startDateInput.value);
@@ -50,8 +60,8 @@
 
       if (startDate && endDate && !isNaN(startDate) && !isNaN(endDate) && startDate <= endDate) {
         const diffTime = Math.abs(endDate - startDate);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // Include the start day
-        const totalPrice = diffDays * dogPrice;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;  // Include the start day
+        const totalPrice = diffDays * pricePerDay;
         totalPriceInput.value = totalPrice.toFixed(2);
       } else {
         totalPriceInput.value = '';
