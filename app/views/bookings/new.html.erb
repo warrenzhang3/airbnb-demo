@@ -1,0 +1,37 @@
+<!-- app/views/bookings/new.html.erb -->
+<%= form_with(model: [@dog, @booking], local: true, html: { class: 'container mt-4' }) do |form| %>
+  <% if @booking.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h4>
+      <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :start_date, class: 'form-label' %>
+    <%= form.date_field :start_date, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :end_date, class: 'form-label' %>
+    <%= form.date_field :end_date, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :total_price, class: 'form-label' %>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">CAD</span>
+      </div>
+      <%= form.text_field :total_price, class: 'form-control', placeholder: 'Enter total price in CAD' %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Create Booking", class: 'btn btn-primary' %>
+  </div>
+<% end %>

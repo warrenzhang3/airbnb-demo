@@ -9,7 +9,7 @@
           <h5 class="card-title"><strong>Name: </strong><%= link_to dog.name, dog_path(dog) %></h5>
           <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
           <p class="card-text"><strong>Price: </strong><%= dog.price %></p>
-          <button class="btn btn-primary">Rent This Dog</button>
+          <%= link_to 'Rent This Dog', new_dog_booking_path(dog), class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
