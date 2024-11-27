@@ -1,9 +1,28 @@
-<h1 class="text-center">Welcome to Happy Paws</h1>
 
-<div class="text-center my-4">
+<div class="card-category card-margin background-adjust">
+  Welcome to Happy Paws
+</div>
+
+<div class="row card-margin">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <%= render 'carousel', page: @page %>
+      </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Meet Our Adorable Dogs for Rent</h5>
+        <p class="card-text">Whether it's for a walk, a special event, or simply to enjoy the company of a loyal four-legged friend, our dogs are here for you. Each one is carefully selected, well-trained, and ready to share unforgettable moments with you. Browse our gallery to find your perfect companion!</p>
+        <p class="card-text">Looking for a loyal companion for a day or an occasion? Our friendly and well-trained dogs are available to bring joy and warmth to your life. From playful pups to calm companions, we have the perfect match for every need. Rent a dog today and experience unconditional love and happiness!</p>
+        <p class="card-text">Experience the joy of spending time with a loving, well-trained dog. Whether you need a furry friend for a hike, a family gathering, or just some company, our dogs are ready to brighten your day.</p>
+        <%= link_to 'View All Dogs', dogs_path, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+
+</div>
+<%# <div class="text-center my-4">
   <img src="https://www.fourpaws.com/-/media/Project/OneWeb/FourPaws/Images/articles/family-matters/dog-playtime/dog-playtime-927x388.jpg?h=388&iar=0&w=927&hash=DC486D0863E76ECD77FCD613BCA7A537" alt="Happy Paws Playtime" class="img-fluid">
-</div>
-
-<div class="text-center my-4">
-  <%= link_to 'View All Dogs', dogs_path, class: 'btn btn-primary' %>
-</div>
+</div> %>
