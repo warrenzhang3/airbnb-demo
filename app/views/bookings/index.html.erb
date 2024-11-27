@@ -6,8 +6,7 @@
     <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title"><strong> <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , dog_path(booking)%> </strong></h5>
-          <p class="card-text"> <strong>Dog: </strong><%= booking.dog.name %> </p>
+          <p class="card-text"> <strong> <%= link_to booking.dog.name, dog_path(booking) %> </strong> </p>
           <p class="card-text"> <strong>Price: </strong>$<%= booking.total_price %> </p>
           <p class="card-text"> <strong>Date Rented: </strong><%= booking.start_date %> </p>
           <p class="card-text"> <strong>Deadline: </strong><%= booking.end_date %> </p>
