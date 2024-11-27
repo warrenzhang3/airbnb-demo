@@ -1,17 +1,23 @@
-<h1>Dogs</h1>
+<!-- app/views/dogs/index.html.erb -->
+<h1 class="text-center">Dogs</h1>
 
-<% @dogs.each do |dog| %>
-
+<div class="container">
   <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><strong>Name: </strong><%= link_to dog.name, dog_path(dog) %></h5>
-          <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
-          <p class="card-text"><strong>Price: </strong><%= dog.price %></p>
-          <%= link_to 'Rent This Dog', new_dog_booking_path(dog, price: dog.price, dog_name: dog.name), class: 'btn btn-primary' %>
+    <% @dogs.each_with_index do |dog, index| %>
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><strong>Name: </strong><%= link_to dog.name, dog_path(dog) %></h5>
+            <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
+            <p class="card-text"><strong>Price: </strong><%= number_to_currency(dog.price) %></p>
+            <%= link_to 'Rent This Dog', new_dog_booking_path(dog, price: dog.price, dog_name: dog.name), class: 'btn btn-primary', style: 'background-color: #FE6F61; color: white;' %>
+          </div>
         </div>
       </div>
-    </div>
+
+      <% if (index + 1) % 2 == 0 %>
+        </div><div class="row">
+      <% end %>
+    <% end %>
   </div>
-<% end %>
+</div>
