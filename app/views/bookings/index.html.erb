@@ -19,6 +19,7 @@
           <td><%= booking.start_date %></td>
           <td><%= booking.end_date %></td>
           <td><%= number_to_currency(booking.total_price) %></td>
+          <%# <%= raise %>
           <td>
           <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-warning btn-sm' %>
           </td>
