@@ -1,17 +1,27 @@
-<h1>Bookings</h1>
+<!-- app/views/bookings/index.html.erb -->
+<h1 class="text-center">Your Bookings</h1>
 
-<% @bookings.each do |booking| %>
-
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <p class="card-text"> <strong> <%= link_to booking.dog.name, dog_path(booking) %> </strong> </p>
-          <p class="card-text"> <strong>Price: </strong>$<%= booking.total_price %> </p>
-          <p class="card-text"> <strong>Date Rented: </strong><%= booking.start_date %> </p>
-          <p class="card-text"> <strong>Deadline: </strong><%= booking.end_date %> </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<% if @bookings.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Dog</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Total Price (CAD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.dog.name %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td><%= number_to_currency(booking.total_price) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="text-center">You have no bookings yet.</p>
 <% end %>
