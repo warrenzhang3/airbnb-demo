@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # dogs controller
   get "dogs", to: "dogs#index"
-  get "dogs/new", to: "dogs#new"
+  get "dogs/new", to: "dogs#new", as: 'new_dog'
   post "dogs", to: "dogs#create"
   get "dogs/:id", to: "dogs#show", as: 'dog'
 
