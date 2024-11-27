@@ -73,6 +73,13 @@
       }
     }
 
+    // Trigger calculation on page load if both dates are already selected
+    if (startDateInput.value && endDateInput.value) {
+      calculateTotalPrice();
+    }
+
+    startDateInput.addEventListener('change', calculateTotalPrice);
+    endDateInput.addEventListener('change', calculateTotalPrice);
     calculateButton.addEventListener('click', calculateTotalPrice);
   });
 </script>
