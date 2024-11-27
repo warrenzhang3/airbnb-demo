@@ -16,8 +16,14 @@
 
   <div class="mb-3">
     <%= form.label :price, class: 'form-label' %>
-    <%= form.number_field :price, class: 'form-control' %>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">CAD</span>
+      </div>
+      <%= form.text_field :price, class: 'form-control', placeholder: 'Enter price in CAD' %>
   </div>
+</div>
+
 
   <div class="mb-3">
     <%= form.label :city, class: 'form-label' %>
