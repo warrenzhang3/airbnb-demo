@@ -5,25 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-  <div class="container">
-    <%= render "shared/navbar" %>
-
-    <%= yield %>
-    <%= render "shared/flashes" %>
-        <footer class="bg-body-tertiary text-center text-lg-start footer-position">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2024 Copyright:
-    <a class="text-body" href="">Le Wagon batch#1851@GeralDo & Waren & Ribot</a>
-  </div>
-  <!-- Copyright -->
-</footer>
+    <div class="container">
+      <%= render "shared/navbar" %>
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+      <%= render "shared/flashes" %>
+      <%= render "shared/footer" %>
     </div>
   </body>
 </html>

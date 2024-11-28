@@ -1,0 +1,13 @@
+<!-- app/views/bookings/show.html.erb -->
+<h1 class="text-center">Booking Details</h1>
+<p><strong>Dog Name:</strong> <%= @booking.dog.name %></p>
+<p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+<p><strong>End Date:</strong> <%= @booking.end_date %></p>
+<p><strong>Total Price:</strong> <%= number_to_currency(@booking.total_price) %></p>
+<p><strong>Status:</strong> <%= @booking.status %></p>
+<% if current_user.owner? && @booking.status == 'pending' %>
+  <%= link_to 'Approve', approve_booking_path(@booking), method: :post, class: 'btn btn-success' %>
+  <%= link_to 'Decline', decline_booking_path(@booking), method: :patch, class: 'btn btn-danger' %>
+<% else %>
+  <%= link_to 'Back', bookings_path, class: 'btn btn-primary' %>
+<% end %>
