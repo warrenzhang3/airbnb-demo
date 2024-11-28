@@ -40,25 +40,21 @@ class BookingsController < ApplicationController
     end
   end
 
-  def approve
-    @booking = Booking.find_by_id(params[:id])
-     @booking.update(state: "approved")
-     if @booking.state == "approved"
-       flash[:success] = "Booking successfully approved"
-       redirect_to bookings_path
-     else
-       flash[:error] = "Booking not approved"
-       redirect_to bookings_path
-     end
+  def accept
+    if @booking.update(status: 'accepted')
+      redirect_to bookings_path, notice: 'Booking has been accepted.'
+    else
+      redirect_to bookings_path, alert: 'Failed to accept the booking.'
+    end
   end
 
-  # def decline
-  #   if @booking.update(status: 'declined')
-  #     redirect_to bookings_path, notice: 'Booking has been declined.'
-  #   else
-  #     redirect_to bookings_path, alert: 'Failed to decline the booking.'
-  #   end
-  # end
+  def decline
+    if @booking.update(status: 'declined')
+      redirect_to bookings_path, notice: 'Booking has been declined.'
+    else
+      redirect_to bookings_path, alert: 'Failed to decline the booking.'
+    end
+  end
 
   private
 
