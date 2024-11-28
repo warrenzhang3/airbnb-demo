@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :dogs, dependent: :destroy
   validates :first_name, :last_name, presence: true
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

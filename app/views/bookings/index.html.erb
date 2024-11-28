@@ -6,6 +6,7 @@
     <thead>
       <tr>
         <th>Dog</th>
+        <th>Owner</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Total Price (CAD)</th>
@@ -16,6 +17,7 @@
       <% @bookings.each do |booking| %>
         <tr>
           <td><%= booking.dog.name %></td>
+          <td><%= booking.dog.user.name %></td>
           <td><%= booking.start_date %></td>
           <td><%= booking.end_date %></td>
           <td><%= number_to_currency(booking.total_price) %></td>
