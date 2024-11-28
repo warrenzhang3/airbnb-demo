@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   end
   resources :bookings do
     member do
-      post :approve
+      patch :accept
+      patch :decline
     end
   end
 end
