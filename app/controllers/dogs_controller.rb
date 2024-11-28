@@ -24,16 +24,14 @@ class DogsController < ApplicationController
 
   # Custom action for calculating total price
   def calculate_total_price
-    begin
-      start_date = Date.parse(params[:start_date])
-      end_date = Date.parse(params[:end_date])
-      diff_days = (end_date - start_date).to_i + 1
-      total_price = diff_days * @dog.price
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+    diff_days = (end_date - start_date).to_i + 1
+    total_price = diff_days * @dog.price
 
-      render json: { total_price: total_price }
-    rescue ArgumentError, NoMethodError => e
-      render json: { error: "Invalid input for total price calculation" }, status: :unprocessable_entity
-    end
+    render json: { total_price: total_price }
+  rescue ArgumentError, NoMethodError
+    render json: { error: "Invalid input for total price calculation" }, status: :unprocessable_entity
   end
 
   private

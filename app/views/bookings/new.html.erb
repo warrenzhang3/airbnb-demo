@@ -37,10 +37,6 @@
   </div>
 
   <div class="mb-3">
-    <button type="button" class="btn btn-secondary" id="calculate_price" style="background-color: #FE6F61; color: white;">Calculate Total Price</button>
-  </div>
-
-  <div class="mb-3">
     <%= form.label :total_price, class: 'form-label' %>
     <div class="input-group">
       <div class="input-group-prepend">
@@ -57,11 +53,10 @@
 
 <!-- JavaScript to Fetch and Display Total Price -->
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbo:load", function() {
     const startDateInput = document.getElementById('start_date');
     const endDateInput = document.getElementById('end_date');
     const totalPriceInput = document.getElementById('total_price');
-    const calculateButton = document.getElementById('calculate_price');
 
     async function fetchTotalPrice() {
       const startDate = startDateInput.value;
@@ -82,8 +77,9 @@
       }
     }
 
-    startDateInput.addEventListener('blur', fetchTotalPrice);
-    endDateInput.addEventListener('blur', fetchTotalPrice);
-    calculateButton.addEventListener('click', fetchTotalPrice);
+    if (startDateInput && endDateInput) {
+      startDateInput.addEventListener('change', fetchTotalPrice);
+      endDateInput.addEventListener('change', fetchTotalPrice);
+    }
   });
 </script>
