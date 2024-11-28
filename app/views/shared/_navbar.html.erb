@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon card-margin">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/../", class: "navbar-brand" do %>
       <%= image_tag "https://media.istockphoto.com/id/1142468743/vector/heart-shape-icon-in-red-pink-colored-animal-paw-print.jpg?s=612x612&w=0&k=20&c=3XbuWQbzkeG7cAW5DS2oPxynbmhZ6hKzzOubA1N-_ts=" %>
     <% end %>
 
@@ -11,9 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link" %>
-            </li>
+        <div class="text-options">
             <li class="nav-item active">
               <%= link_to "Dogs", dogs_path, class: "nav-link" %>
             </li>
@@ -23,6 +21,7 @@
             <li class="nav-item active">
               <%= link_to "Bookings", bookings_path, class: "nav-link" %>
             </li>
+        </div>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%# <img class="avatar-large" alt="avatar-large" src="../../assets/images/dog.jpg"> %>

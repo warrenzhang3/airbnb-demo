@@ -1,5 +1,4 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: #FE6F61;
 }
 
@@ -8,7 +7,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
 }
 
 .nav-link {
@@ -16,4 +15,12 @@
   &:hover {
     color: yellow;
   }
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.text-options {
+  display: flex;
+
 }
