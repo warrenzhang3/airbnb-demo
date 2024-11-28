@@ -5,9 +5,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Dog</th>
-        <th>Owner</th>
-
+        <th>Dog Name</th>
         <th>Start Date</th>
         <th>End Date</th>
         <th>Total Price</th>
@@ -19,16 +17,18 @@
       <% @bookings.each do |booking| %>
         <tr>
           <td><%= booking.dog.name %></td>
-          <td><%= booking.dog.user.name %></td>
           <td><%= booking.start_date %></td>
           <td><%= booking.end_date %></td>
           <td><%= number_to_currency(booking.total_price) %></td>
           <td><%= booking.status %></td>
           <td>
-            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-secondary' %>
-            <% if booking.status == 'pending' %>
-              <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
-              <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+            <% if current_user.owner? %>
+              <% if booking.status == 'pending' %>
+                <%= link_to 'Accept', accept_booking_path(booking), method: :patch, class: 'btn btn-success' %>
+                <%= link_to 'Decline', decline_booking_path(booking), method: :patch, class: 'btn btn-danger' %>
+              <% end %>
+            <% else %>
+              <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-secondary' %>
             <% end %>
           </td>
         </tr>

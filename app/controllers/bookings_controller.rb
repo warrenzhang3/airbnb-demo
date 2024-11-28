@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :accept, :decline]
 
   def index
-    @bookings = current_user.bookings
+    if current_user.owner?
+      @bookings = Booking.joins(:dog).where(dogs: { user_id: current_user.id })
+    else
+      @bookings = current_user.bookings
+    end
   end
 
   def new

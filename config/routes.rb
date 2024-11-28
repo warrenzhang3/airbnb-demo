@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   # Bookings controller
-  resources :bookings, only: [:index, :edit, :update] do
+  resources :bookings, only: [:index, :edit, :update, :show] do
     member do
       patch 'accept'
       patch 'decline'
