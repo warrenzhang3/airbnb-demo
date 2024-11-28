@@ -5,10 +5,9 @@ class BookingsController < ApplicationController
 
   def index
     if current_user.owner?
-      @bookings = Booking.joins(:dog).where(dogs: { user_id: current_user.id })
-    else
-      @bookings = current_user.bookings
+      @bookings_received = Booking.joins(:dog).where(dogs: { user_id: current_user.id })
     end
+    @bookings_made = current_user.bookings
   end
 
   def new
