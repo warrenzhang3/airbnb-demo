@@ -1,6 +1,5 @@
 <!-- app/views/bookings/index.html.erb -->
 <h1 class="text-center">Your Bookings</h1>
-
 <% if @bookings.any? %>
   <table class="table table-striped">
     <thead>
@@ -23,7 +22,7 @@
           <td><%= number_to_currency(booking.total_price) %></td>
           <%# <%= raise %>
           <td>
-          <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-warning btn-sm' %>
+            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-warning btn-sm' %>
           </td>
         </tr>
       <% end %>
