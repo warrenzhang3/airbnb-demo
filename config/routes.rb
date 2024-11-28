@@ -13,12 +13,9 @@ Rails.application.routes.draw do
       get 'calculate_total_price'
     end
   end
-
-  # Bookings controller
-  resources :bookings, only: [:index, :edit, :update, :show] do
+  resources :bookings do
     member do
-      patch 'accept'
-      patch 'decline'
+      post :approve
     end
   end
 end
