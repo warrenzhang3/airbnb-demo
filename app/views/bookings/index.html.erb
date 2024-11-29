@@ -1,6 +1,5 @@
 <!-- app/views/bookings/index.html.erb -->
 <h1 class="text-center">Your Bookings</h1>
-
 <div class="bookings-section">
   <h2>Requests Made</h2>
   <% if @bookings_made.present? && @bookings_made.any? %>
@@ -32,7 +31,6 @@
     <p>No bookings made.</p>
   <% end %>
 </div>
-
 <% if current_user.owner? %>
   <div class="bookings-section">
     <h2>Requests Received</h2>
@@ -41,6 +39,7 @@
         <thead>
           <tr>
             <th>Dog Name</th>
+            <th>Owner</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Total Price</th>
@@ -52,6 +51,7 @@
           <% @bookings_received.each do |booking| %>
             <tr>
               <td><%= booking.dog.name %></td>
+              <td><%= booking.user.name %></td>
               <td><%= booking.start_date %></td>
               <td><%= booking.end_date %></td>
               <td><%= number_to_currency(booking.total_price) %></td>
