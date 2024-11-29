@@ -1,5 +1,7 @@
 <!-- app/views/bookings/index.html.erb -->
-<h1 class="text-center">Your Bookings</h1>
+<div id="title-login">
+  <h1 class="text-center">Your Bookings <i class="fa-solid fa-bars-progress"></i></h1>
+</div>
 <div class="bookings-section">
   <h2>Requests Made</h2>
   <% if @bookings_made.present? && @bookings_made.any? %>

@@ -16,7 +16,7 @@
           <p><strong>Address:</strong> <%= @dog.address %></p>
           <p><strong>Price:</strong> <%= number_to_currency(@dog.price) %></p>
           <p><strong>City:</strong> <%= @dog.city %></p>
-          <%= link_to 'Rent This Dog', new_dog_booking_path(@dog, price: @dog.price, dog_name: @dog.name), class: 'btn btn-primary', style: 'background-color: #FE6F61; color: white;' %>
+          <%= link_to 'Rent This Dog', new_dog_booking_path(@dog, price: @dog.price, dog_name: @dog.name), class: 'button-styling' %>
         </div>
       </div>
     </div>
