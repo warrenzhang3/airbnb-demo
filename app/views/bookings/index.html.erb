@@ -8,6 +8,7 @@
       <thead>
         <tr>
           <th>Dog Name</th>
+          <th>Dog Owner</th>
           <th>Start Date</th>
           <th>End Date</th>
           <th>Total Price</th>
@@ -19,6 +20,7 @@
         <% @bookings_made.each do |booking| %>
           <tr>
             <td><%= booking.dog.name %></td>
+            <td><%= "#{booking.user.first_name} #{booking.user.last_name}" %></td>
             <td><%= booking.start_date %></td>
             <td><%= booking.end_date %></td>
             <td><%= number_to_currency(booking.total_price) %></td>
@@ -41,6 +43,7 @@
         <thead>
           <tr>
             <th>Dog Name</th>
+            <th>Dog Owner</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Total Price</th>
@@ -52,6 +55,7 @@
           <% @bookings_received.each do |booking| %>
             <tr>
               <td><%= booking.dog.name %></td>
+              <td><%= "#{booking.user.first_name} #{booking.user.last_name}" %></td>
               <td><%= booking.start_date %></td>
               <td><%= booking.end_date %></td>
               <td><%= number_to_currency(booking.total_price) %></td>
