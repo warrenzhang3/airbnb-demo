@@ -1,15 +1,14 @@
-<h2>Sign up</h2>
-
+<div id="title-login">
+  <h2>SIGN UP <i class="fa-solid fa-user"></i></h2>
+</div>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
   <div class="form-inputs">
     <%= f.input :first_name,
               required: true,
               autofocus: true,
               input_html: { autocomplete: "" } %>
-
-  <%= f.input :last_name,
+    <%= f.input :last_name,
               required: true,
               input_html: { autocomplete: "" } %>
     <%= f.input :email,
@@ -24,10 +23,8 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
-
-  <div class="form-actions">
+  <div class="form-actions" id= "share-link">
     <%= f.button :submit, "Sign up" %>
+    <%= render "devise/shared/links" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
