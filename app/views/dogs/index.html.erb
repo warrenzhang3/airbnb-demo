@@ -1,6 +1,7 @@
 <!-- app/views/dogs/index.html.erb -->
-<h1 class="text-center">Dogs</h1>
-
+<div id="title-login">
+  <h1 class="text-center">Dogs <i class="fa-solid fa-dog"></i></h1>
+</div>
 <div class="container">
   <div class="row">
     <% @dogs.each_with_index do |dog, index| %>
@@ -24,13 +25,13 @@
             <p class="card-text"><strong>Owner: </strong><%= "#{dog.user.first_name} #{dog.user.last_name}" %></p>
             <p class="card-text"><strong>Description: </strong><%= dog.description %></p>
             <p class="card-text"><strong>Price: </strong><%= number_to_currency(dog.price) %></p>
-            <%= link_to 'Rent This Dog', new_dog_booking_path(dog, price: dog.price, dog_name: dog.name), class: 'btn btn-primary', style: 'background-color: #FE6F61; color: white;' %>
+            <%= link_to 'Rent This Dog', new_dog_booking_path(dog, price: dog.price, dog_name: dog.name), class: 'button-styling' %>
           </div>
         </div>
       </div>
-
       <% if (index + 1) % 2 == 0 %>
-        </div><div class="row">
+      </div>
+      <div class="row">
       <% end %>
     <% end %>
   </div>
