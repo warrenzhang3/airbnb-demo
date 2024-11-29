@@ -1,37 +1,33 @@
-<%= form_with(model: @dog, local: true, html: { class: 'container mt-4' }) do |form| %>
+<div id="title-login">
+  <h2>Post your dog <i class="fa-solid fa-plus"></i></h2>
+</div>
+<%= form_with(model: @dog, local: true, html: { class: 'mt-4' }) do |form| %>
   <div class="mb-3">
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, class: 'form-control' %>
   </div>
-
   <div class="mb-3">
     <%= form.label :description, class: 'form-label' %>
     <%= form.text_area :description, class: 'form-control', rows: 3 %>
   </div>
-
   <div class="mb-3">
     <%= form.label :address, class: 'form-label' %>
     <%= form.text_field :address, class: 'form-control' %>
   </div>
-
   <div class="mb-3">
     <%= form.label :price, class: 'form-label' %>
     <div class="input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text">CAD</span>
-      </div>
+      <%# <div class="input-group-prepend" id="money-type"> %>
+      <span class="input-group-text" id="money-type">CAD</span>
+      <%# </div> %>
       <%= form.text_field :price, class: 'form-control', placeholder: 'Enter price in CAD' %>
+    </div>
   </div>
-</div>
-
-
   <div class="mb-3">
     <%= form.label :city, class: 'form-label' %>
     <%= form.text_field :city, class: 'form-control' %>
   </div>
-
-
-  <div class="mb-3">
-    <%= form.submit "Create Dog", class: 'btn btn-primary' %>
+  <div class="mb-3" id= "share-link">
+    <%= form.submit "Submit", class: 'btn btn-primary' %>
   </div>
 <% end %>

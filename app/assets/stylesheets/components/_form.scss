@@ -73,6 +73,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   filter: brightness(105%);
   transform: translateX(2px);
+  color: white;
 }
 
 #input-contenair {
@@ -104,5 +105,17 @@ input[type="submit"]:hover {
     text-align: center;
     color: rgb(118, 92, 92);
     text-decoration: none;
+
+    &:hover {
+      filter: brightness(105%);
+      transform: translateX(2px);
+      color: white;
+    }
   }
+}
+
+#money-type {
+  border: none;
+  background-color: white;
+  color: rgb(118, 92, 92);
 }
