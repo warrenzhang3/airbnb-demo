@@ -51,7 +51,7 @@
   document.addEventListener("turbo:load", function() {
     const startDateInput = document.getElementById('start_date');
     const endDateInput = document.getElementById('end_date');
-    const totalPriceInput = document.getElementById('total_price');
+    const totalPriceDisplay = document.getElementById('total_price_display');
 
     async function fetchTotalPrice() {
       const startDate = startDateInput.value;
@@ -62,7 +62,7 @@
           const response = await fetch(`/dogs/<%= @dog.id %>/calculate_total_price?start_date=${startDate}&end_date=${endDate}`);
           if (response.ok) {
             const data = await response.json();
-            totalPriceInput.value = data.total_price.toFixed(2);
+            totalPriceDisplay.textContent = data.total_price.toFixed(2);
           } else {
             console.error('Failed to fetch total price:', response.status);
           }

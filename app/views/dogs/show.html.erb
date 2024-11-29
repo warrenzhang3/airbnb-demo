@@ -1,6 +1,11 @@
 <!-- app/views/dogs/show.html.erb -->
-<h1><%= @dog.name %></h1>
-<p><%= @dog.description %></p>
-<p>Address: <%= @dog.address %></p>
-<p>Price: <%= number_to_currency(@dog.price) %></p>
-<p>City: <%= @dog.city %></p>
+<div class="card card-product">
+  <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h1><%= @dog.name %></h1>
+    <p><strong>Description:</strong> <%= @dog.description %></p>
+    <p><strong>Address:</strong> <%= @dog.address %></p>
+    <p><strong>Price:</strong> <%= number_to_currency(@dog.price) %></p>
+    <p><strong>City:</strong> <%= @dog.city %></p>
+  </div>
+</div>
