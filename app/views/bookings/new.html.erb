@@ -1,57 +1,51 @@
 <!-- app/views/bookings/new.html.erb -->
-<div class="card mt-4">
-  <div class="card-header">
-    <h2 class="card-title">Create Booking</h2>
-  </div>
-  <div class="card-body">
-    <%= form_with(model: [@dog, @booking], local: true) do |form| %>
-      <% if @booking.errors.any? %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <h4 class="alert-heading"><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h4>
-          <ul>
-            <% @booking.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <% end %>
-
-      <div class="mb-3">
-        <%= form.label :dog_name, "Dog Name", class: 'form-label' %>
-        <p class="form-control-plaintext"><%= params[:dog_name] %></p>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :owner_name, "Owner Name", class: 'form-label' %>
-        <p class="form-control-plaintext"><%= @dog.user.name %></p>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :start_date, "Start Date", class: 'form-label' %>
-        <%= form.date_field :start_date, class: 'form-control', id: 'start_date' %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :end_date, "End Date", class: 'form-label' %>
-        <%= form.date_field :end_date, class: 'form-control', id: 'end_date' %>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :price_per_day, "Price per Day (CAD)", class: 'form-label' %>
-        <p class="form-control-plaintext"><%= number_to_currency(params[:price], unit: '', precision: 2) %></p>
-      </div>
-
-      <div class="mb-3">
-        <%= form.label :total_price, "Total Price (CAD)", class: 'form-label' %>
-        <p class="form-control-plaintext" id="total_price_display"></p>
-      </div>
-
-      <%= form.submit "Create Booking", class: 'btn btn-primary' %>
-    <% end %>
-  </div>
+<div id="title-login">
+  <h2>Rent A Dog <i class="fa-solid fa-hourglass-half"></i></h2>
 </div>
-
+<%= form_with(model: [@dog, @booking], local: true, html: { class: 'mt-4' }) do |form| %>
+  <% if @booking.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h4>
+      <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :dog_name, "Dog Name", class: 'form-label' %>
+    <%= form.text_field :dog_name, class: 'form-control', value: params[:dog_name], readonly: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :owner_name, "Owner Name", class: 'form-label' %>
+    <%= form.text_field :owner_name, class: 'form-control', value: @dog.user.name, readonly: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :start_date, class: 'form-label' %>
+    <%= form.date_field :start_date, class: 'form-control', id: 'start_date' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :end_date, class: 'form-label' %>
+    <%= form.date_field :end_date, class: 'form-control', id: 'end_date' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :price_per_day, "Price per Day (CAD)", class: 'form-label' %>
+    <%= form.text_field :price_per_day, class: 'form-control', value: params[:price], readonly: true %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :total_price, class: 'form-label' %>
+    <div class="input-group">
+      <%# <div class="input-group-prepend"> %>
+      <span class="input-group-text" id="money-type">CAD</span>
+      <%# </div> %>
+      <%= form.text_field :total_price, class: 'form-control', id: 'total_price', readonly: true %>
+    </div>
+  </div>
+  <div class="mb-3" id= "share-link">
+    <%= form.submit "Submit", class: 'btn btn-primary', style: "background-color: #007bff;" %>
+  </div>
+<% end %>
 <!-- JavaScript to Fetch and Display Total Price -->
 <script>
   document.addEventListener("turbo:load", function() {
